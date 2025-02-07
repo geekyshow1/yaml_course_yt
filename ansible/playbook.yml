@@ -1,0 +1,16 @@
+- name: Deploy App
+  hosts: webserver
+  vars:
+    db_host: "{{ lookup('env', 'DB_HOST') }}"
+    db_user: "{{ lookup('env', 'DB_USER') }}"
+    db_pass: "{{ lookup('env', 'DB_PASS') }}"
+  tasks:
+    - name: Install dependencies
+      apt:
+        name: nginx
+        state: present
+
+    - name: Deploy App
+      template:
+        src: app.conf.j2
+        dest: /etc/app.conf

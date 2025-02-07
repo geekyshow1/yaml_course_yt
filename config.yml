@@ -1,0 +1,86 @@
+name: Sonam Kumari
+fullname: "Sonam Kumari"
+age: 32
+price: 234.34
+is_active: true
+is_dark: False
+is_success: YES
+is_valid: no
+is_pvt: on
+is_public: OFF
+gender: null
+
+# List/Sequences
+fruits:
+ - Apple
+ - Banana
+ - Orange
+
+# Dict/Map
+person:
+ name: sonam
+ age: 32
+ city: ranchi
+
+# Inline List
+fruits: [apple, banana, orange]
+
+# Inline Dict
+person: {name: sonam, age: 32, city: ranchi}
+
+# List of Dictionaries
+employees:
+ - name: Sonam
+   age: 25
+   city: ranchi
+ - name: Rahul
+   age: 34
+   city: bokaro
+
+# Dictionary with Lists
+person:
+ name: Sonam
+ hobbies:
+  - reading
+  - gaming
+  - singing
+
+# Multiline String (| and >)
+description: |
+ This is a multi
+ line string
+ it preserves line breaks
+
+summary: >
+ This is a multi
+ line string
+ with new lines collapsed
+
+# Anchors Alias
+base_config: &default
+ timeout: 20
+ retires: 5
+
+custom_config:
+ <<: *default
+ retries: 2
+
+# ENV
+# Docker Compose
+DB_HOST = ${DB_HOST}
+# Kubernetes ConfigMap
+valueFrom.configMapKeyRef
+# Ansible Playbooks
+lookup('env', 'DB_USER')
+# GitHub Actions
+${{ secrets.DB_USER }}
+
+# Multiple Document
+---
+name: Sonam
+age: 45
+...
+---
+name: Rahul
+age: 32
+...
